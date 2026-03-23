@@ -1,0 +1,18 @@
+services:
+  database-service:
+    image: postgres:18.1-bookworm
+    container_name: database
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_USER}
+      - POSTGRES_DB=${POSTGRES_DB}
+    ports:
+      - 5432:5432
+    volumes:
+      - ${PROJECT_ROOT}/out/pgdata:/var/lib/postgresql
+    restart: always
+  
+  database-migration:
+    image: migrate/migrate:v4.19.1
+    volumes:
+      - ${PROJECT_ROOT}/migrations/migrations
