@@ -1,0 +1,1 @@
+CREATE SCHEMA accreditation_service;
