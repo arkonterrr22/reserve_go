@@ -40,3 +40,8 @@ migrate-action:
 		-path /migrations \
 		- database postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@database-service:5432/${POSTGRES_DB}?sslmode=disable \
 		"$(action)"
+
+print-data:
+	echo "${POSTGRES_USER}" \
+	echo "${POSTGRES_PASSWORD}" \
+	echo "${POSTGRES_DB}" \
