@@ -38,7 +38,7 @@ migrate-action:
 	fi; \
 	docker compose run --rm database-migration \
 		-path /migrations \
-		- database postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@database-service:5432/${POSTGRES_DB}?sslmode=disable \
+		-database postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@database-service:5432/${POSTGRES_DB}?sslmode=disable \
 		"$(action)"
 
 print-data:
